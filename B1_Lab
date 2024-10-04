@@ -1,0 +1,50 @@
+//C++ 
+#include <bits/stdc++.h> 
+using namespace std;
+bool checkNum(string s){
+    int len = s.length();
+    if(len != 10){
+        return false;
+    }
+    else{
+        for(int i=0; i<len; i++){
+            if(s[i] >= 48 && s[i] <= 57){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+    }
+}
+int countTime(string a, string b){
+    int sum1 = 3600*((a[0]-'0')*10 + (a[1]-'0'))+60*((a[3]-'0')*10+(a[4]-'0'))+((a[6]-'0')*10 + (a[7]-'0'));
+    int sum2 = 3600*((b[0]-'0')*10 + (b[1]-'0'))+60*((b[3]-'0')*10+(b[4]-'0'))+((b[6]-'0')*10 + (b[7]-'0'));
+    return sum2 - sum1;
+}
+int main() 
+{ 
+    map<string, int> mp;
+    int k=0, sum = 0;
+    while(1){
+        string cal, sdt1, sdt2, nt, ng1, ng2;
+        cin >> cal >> sdt1 >> sdt2 >> nt >> ng1 >> ng2;
+        if(cal == "#") break;
+        sum++;
+        if(!checkNum(sdt1) || !checkNum(sdt2)) k++;
+        if(checkNum(sdt1)) mp[sdt1]++;
+    }
+    while(1){
+        string ord;
+        cin>>ord;
+        if(ord == "#") break;
+        else if(ord == "?check_phone_number"){
+            if(k != 0) cout<<"0" << endl;
+            else cout << "1"<< endl;
+        }
+        else if(ord == "?number_calls_from"){
+            string s; cin >> s;
+            cout << 
+        }
+    }
+}
