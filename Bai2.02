@@ -1,0 +1,35 @@
+//C++ 
+#include <bits/stdc++.h> 
+#define MAX 20
+int a[MAX][MAX];
+int ans = 0, N, cap, cmin;
+int appear[MAX][MAX] = 0;
+int load = 0;
+void input(){
+    cin >> N >> cap;
+    cmin = 100000000;
+    for(int i = 0; i <= 2*N; i++){
+        for(int j =0; j <= 2*N; j++){
+            cin >> a[i][j];
+            if(i != j && cmin > a[i][j]) cmin = a[i][j];
+        }
+    }
+}
+
+int check(int v, int k){
+    if(appear[v] == 1) return 0;
+    if(v > N){
+        if(!appear[v-N]) return 0;
+    }
+    else{
+        if(load + 1 > cap) return 0;
+    }
+    return 1;
+}
+void Try(int k){
+    
+}
+int main() 
+{ 
+
+}
